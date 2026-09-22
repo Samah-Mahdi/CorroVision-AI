@@ -55,7 +55,7 @@ html, body, .stApp, p, h2, h3, h4, h5, h6, span, label, div {{
 
 .stFileUploader label, .stNumberInput label {{
     font-weight: bold;
-    color: #ffffff;
+    color: #222;
 }}
 
 .st-emotion-cache-1abbcj6 {{
