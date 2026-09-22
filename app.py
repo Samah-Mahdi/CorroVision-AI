@@ -262,7 +262,6 @@ def predict_resnet(image, model_obj):
     return has_corrosion, confidence
 
 def predict_custom_cnn(image, model_obj):
-    # افتراض أن Custom CNN تم تدريبه على أبعاد 224x224 (عدلها إذا كانت مختلفة)
     img = image.resize((224, 224)).convert("RGB")
     img_array = np.array(img, dtype=np.float32)
     
@@ -435,14 +434,19 @@ if button_container.button(" بدء التحليل الذكي والمقارنة
                 st.markdown("**التوصية التشغيلية (القرار مبني على النموذج الأقوى ResNet):**")
                 
                 if not has_corrosion_res and pressure <= pressure_threshold:
-                    st.success("✅ الحالة: آمن - الأنبوب سليم والضغط ضمن المعدل الطبيعي. الاستمرار في التشغيل.")
+                    st.success("✅ الحالة: آمن - الأنبوب سليم والضغط ضمن المعدل الطبيعي.")
+                    st.info("💡 التوصية: الاستمرار في التشغيل الطبيعي. لا حاجة لصيانة فورية.")
+
                     
                 elif has_corrosion_res and pressure <= pressure_threshold:
-                    st.warning("⚠️ الحالة: تنبيه - تم اكتشاف تآكل، لكن الضغط مستقر. جدولة صيانة وقائية.")
+                    st.warning("⚠️ الحالة: تنبيه - تم اكتشاف تآكل، لكن الضغط مستقر.")
+                    st.info("💡 التوصية: جدولة صيانة وقائية في أقرب فرصة. مراقبة الضغط باستمرار.")
                     
                 elif has_corrosion_res and pressure > pressure_threshold:
                     st.error(f"🚨 الحالة: خطر حرج - تآكل مؤكد مع ضغط مرتفع ({pressure} Bar). خطر تسرب وشيك! يوصى بخفض الضغط فوراً.")
                     
+                    
                 elif not has_corrosion_res and pressure > pressure_threshold:
-                    st.warning("⚠️ الحالة: تنبيه تشغيلي - لا يوجد تآكل مرئي، لكن الضغط مرتفع جداً. فحص الصمامات مطلوب.")
+                    st.warning("⚠️ الحالة: تنبيه تشغيلي - لا يوجد تآكل مرئي، لكن الضغط مرتفع جداً.")
+                    st.info("💡 التوصية: فحص الصمامات وأنظمة التحكم لخفض الضغط للمستوى الآمن.")
 
