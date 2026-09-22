@@ -23,6 +23,9 @@ custom_css = f"""
 #MainMenu {{visibility: hidden;}}
 footer {{visibility: hidden;}}
 header {{visibility: hidden;}}
+div[data-testid="stDecoration"] {{display: none;}}
+    div[data-testid="stStatusWidget"] {{display: none;}}
+    .stAppToolbar {{display: none !important;}}
 
 
 .stApp {{
