@@ -107,7 +107,7 @@ color: #EEEEEE;
 
 .st-emotion-cache-10klw3m {{
     position: relative;
-    bottom: 45px;
+    bottom: 15px;
 }}
 
 .st-emotion-cache-pa57uv > img {{
@@ -140,7 +140,7 @@ div[data-baseweb="input"] {{
     text-align: right !important;
     border-radius: 10px !important;
     position: relative;
-    bottom: 55px;
+    bottom: 10px;
 }}
 
 .stAlertContainer {{
