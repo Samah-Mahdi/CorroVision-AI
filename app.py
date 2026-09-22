@@ -104,6 +104,8 @@ div[data-baseweb="input"] {{
 }}
 
 .stButton > button {{
+    position: relative;
+    bottom: 20px;
     font-weight: bold !important;
     border-radius: 8px !important;
     background-color: #B20600 !important;
