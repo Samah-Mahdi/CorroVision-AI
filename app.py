@@ -30,8 +30,6 @@ header {{visibility: hidden;}}
     div[class*="viewerBadge"] {{display: none !important;}}
     div[data-testid="stEmbedFooter"] {{display: none !important;}}
     footer[data-testid="stFooter"] {{display: none !important;}}
-    </style>
-
 
 .stApp {{
     position: fixed;
