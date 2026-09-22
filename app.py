@@ -71,6 +71,11 @@ padding: 12px;
 border-radius: 10px;
 }}
 
+.st-emotion-cache-v6r2pr::hover {{
+background-color: #B20600
+color: #EEEEEE;
+}}
+
 .st-emotion-cache-v6r2pr[data-selected] {{
     background-color: #BE3030;
     color: #EEEEEE;
