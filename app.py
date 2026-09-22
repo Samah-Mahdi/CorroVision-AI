@@ -200,14 +200,16 @@ with col2:
 # ===============================
 # 5. تنفيذ التحليل واتخاذ القرار
 # ===============================
-if st.button("🚀 بدء التحليل الذكي", use_container_width=True):
+
+button_container = st.empty()
+if button_container.button(" بدء التحليل الذكي 🚀", use_container_width=True):
     if image_to_process is None:
         st.error("الرجاء رفع صورة الأنبوب أولاً لإتمام العملية.")
     elif model is None:
         st.error(f"لم يتم العثور على ملف النموذج في المسار المحدد: {MODEL_PATH}")
         st.info("تأكد من صحة مسار الملف!")
     else:
-        st.button(style="display: none")
+        button_container.empty()
         with st.spinner('جاري تحليل الصورة بواسطة النموذج ومقاطعة النتائج مع بيانات الضغط...'):
             image = Image.open(image_to_process)
             
