@@ -23,9 +23,14 @@ custom_css = f"""
 #MainMenu {{visibility: hidden;}}
 footer {{visibility: hidden;}}
 header {{visibility: hidden;}}
-div[data-testid="stDecoration"] {{display: none;}}
-    div[data-testid="stStatusWidget"] {{display: none;}}
+    div[data-testid="stDecoration"] {{display: none !important;}}
+    div[data-testid="stStatusWidget"] {{display: none !important;}}
     .stAppToolbar {{display: none !important;}}
+    
+    div[class*="viewerBadge"] {{display: none !important;}}
+    div[data-testid="stEmbedFooter"] {{display: none !important;}}
+    footer[data-testid="stFooter"] {{display: none !important;}}
+    </style>
 
 
 .stApp {{
