@@ -64,6 +64,14 @@ background-color: #B20600;
 color: #222222;
 }}
 
+.st-emotion-cache-v6r2pr {{
+background-color: #EEEEEE
+}}
+
+.st-emotion-cache-v6r2pr[data-selected] {{
+    color: #BE3030;
+}}
+
 div[data-baseweb="input"] {{
     direction: ltr !important; 
     text-align: left !important;
