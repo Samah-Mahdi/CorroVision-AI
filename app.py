@@ -58,7 +58,10 @@ background-color: #B20600;
 
 .st-emotion-cache-11jd9ak {{
 background-color: #B20600;
+}}
 
+.st-emotion-cache-10ph27a {{
+color: #222222;
 }}
 
 div[data-baseweb="input"] {{
