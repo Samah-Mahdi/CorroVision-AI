@@ -59,7 +59,11 @@ html, body, .stApp, p, h2, h3, h4, h5, h6, span, label, div {{
 }}
 
 .st-emotion-cache-1o32t8w {{
-color: #222222;
+    color: #222222;
+}}
+
+.st-emotion-cache-gt2nlt {{
+    fill: rgb(190 48 48);
 }}
 
 
