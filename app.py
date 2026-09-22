@@ -88,7 +88,7 @@ color: #EEEEEE;
 }}
 
 .st-emotion-cache-3pwa5w {{
-    bottom: 25px;
+    bottom: 50px;
 }}
 
 .st-emotion-cache-10klw3m {{
@@ -136,7 +136,7 @@ div[data-baseweb="input"] {{
 
 .stButton > button {{
     position: relative;
-    bottom: 20px;
+    bottom: 50px;
     font-weight: bold !important;
     border-radius: 8px !important;
     background-color: #B20600 !important;
