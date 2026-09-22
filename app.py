@@ -242,6 +242,7 @@ if button_container.button(" بدء التحليل الذكي 🚀", use_contain
     else:
         button_container.empty()
         with st.spinner('جاري تحليل الصورة بواسطة النموذج ومقاطعة النتائج مع بيانات الضغط...'):
+            st.markdown("---")
             image = Image.open(image_to_process)
             
             # الحصول على النتائج الحقيقية من النموذج
