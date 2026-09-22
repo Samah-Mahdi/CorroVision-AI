@@ -155,8 +155,15 @@ col1, col2 = st.columns(2)
 
 with col1:
     st.markdown("**1. البيانات البصرية (الفحص)**")
-    uploaded_file = st.file_uploader("قم برفع صورة الأنبوب (JPG/PNG)", type=["jpg", "jpeg", "png"])
+    tab1, tab2 = st.tabs(["📂 رفع صورة من الجهاز", "📸 التقاط بالكاميرا"])
 
+with tab1:
+    uploaded_file = st.file_uploader("اختر صورة للفحص...", type=["jpg", "jpeg", "png"])
+    
+with tab2:
+    camera_file = st.camera_input("التقاط صورة لأنابيب النفط مباشرة")
+    
+image_to_process = uploaded_file or camera_file
 with col2:
     st.markdown("**2. البيانات التشغيلية (السياق)**")
     pressure = st.number_input("أدخل ضغط الأنبوب الحالي (Bar)", min_value=0.0, max_value=200.0, value=40.0, step=1.0)
@@ -168,14 +175,14 @@ st.markdown("---")
 # 5. تنفيذ التحليل واتخاذ القرار
 # ===============================
 if st.button("🚀 بدء التحليل الذكي", use_container_width=True):
-    if uploaded_file is None:
+    if image_to_process is None:
         st.error("الرجاء رفع صورة الأنبوب أولاً لإتمام العملية.")
     elif model is None:
         st.error(f"لم يتم العثور على ملف النموذج في المسار المحدد: {MODEL_PATH}")
         st.info("تأكد من صحة مسار الملف!")
     else:
         with st.spinner('جاري تحليل الصورة بواسطة النموذج ومقاطعة النتائج مع بيانات الضغط...'):
-            image = Image.open(uploaded_file)
+            image = Image.open(image_to_process)
             
             # الحصول على النتائج الحقيقية من النموذج
             has_corrosion, confidence = predict_corrosion(image, model)
