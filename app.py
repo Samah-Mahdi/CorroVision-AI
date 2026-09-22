@@ -65,11 +65,15 @@ color: #222222;
 }}
 
 .st-emotion-cache-v6r2pr {{
-background-color: #EEEEEE
+background-color: #222222
+color: #EEEEEE;
+padding: 12px;
+border-radius: 10px;
 }}
 
 .st-emotion-cache-v6r2pr[data-selected] {{
-    color: #BE3030;
+    background-color: #BE3030;
+    color: #EEEEEE;
 }}
 
 div[data-baseweb="input"] {{
