@@ -52,17 +52,13 @@ html, body, .stApp, p, h2, h3, h4, h5, h6, span, label, div {{
     color: #ffffff;
 }}
 
-.st-emotion-cache-1k9kca4 {{
+.st-emotion-cache-1abbcj6 {{
 background-color: #B20600;
 }}
 
-
-.st-emotion-cache-9gx57n input{{
+.st-emotion-cache-11jd9ak {{
 background-color: #B20600;
-}}
 
-.st-emotion-cache-1nhqhy2 {{
-background-color: #B20600;
 }}
 
 div[data-baseweb="input"] {{
