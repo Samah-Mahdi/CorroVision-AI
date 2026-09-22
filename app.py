@@ -76,6 +76,10 @@ background-color: #B20600;
 background-color: #B20600;
 }}
 
+.st-emotion-cache-ecluvn {{
+color: #222222;
+}}
+
 .st-emotion-cache-10ph27a {{
 color: #222222;
 }}
