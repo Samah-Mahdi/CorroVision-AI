@@ -65,7 +65,7 @@ color: #222222;
 }}
 
 .st-emotion-cache-v6r2pr {{
-background-color: #222222
+background-color: #222222;
 color: #EEEEEE;
 padding: 12px;
 border-radius: 10px;
