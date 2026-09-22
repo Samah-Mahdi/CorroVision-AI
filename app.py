@@ -217,7 +217,7 @@ if st.button("🚀 بدء التحليل الذكي", use_container_width=True):
             res_col1, res_col2 = st.columns([1, 1.5])
             
             with res_col1:
-                st.image(image, caption="الصورة المرفوعة", use_container_width=True)
+                st.image(image, caption="الصورة المراد فحصها", use_container_width=True)
             
             with res_col2:
                 st.metric(label="دقة فحص النموذج (ResNet-50 Confidence)", value=f"{confidence}%")
