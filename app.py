@@ -153,6 +153,7 @@ div[data-baseweb="input"] {{
     color: white !important;
     border: none !important;
     padding: 0.6rem 1rem !important;
+    cursor: pointer;
 }}
 
 .stButton > button:hover {{
