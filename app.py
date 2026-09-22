@@ -322,27 +322,12 @@ with tab2:
     
 image_to_process = uploaded_file or camera_file
 
-# with col2:
-#     st.markdown("**2. البيانات التشغيلية (السياق)**")
-#     pressure = st.number_input("أدخل ضغط الأنبوب الحالي (Bar)", min_value=0.0, max_value=200.0, value=40.0, step=1.0)
-#     pressure_threshold = 50.0  # الحد الأقصى للضغط الآمن
-#     st.markdown("---")
-
 with col2:
     st.markdown("**2. البيانات التشغيلية (السياق)**")
-    
-    # استخدام شريط التمرير التفاعلي بدلاً من حقل الإدخال الرقمي
-    pressure = st.slider(
-        "مؤشر ضغط الأنبوب الحالي (Bar)", 
-        min_value=0.0, 
-        max_value=200.0, 
-        value=40.0, 
-        step=1.0,
-        key="pressure_slider"
-    )
-    
+    pressure = st.number_input("أدخل ضغط الأنبوب الحالي (Bar)", min_value=0.0, max_value=200.0, value=40.0, step=1.0)
     pressure_threshold = 50.0  # الحد الأقصى للضغط الآمن
     st.markdown("---")
+
 
 
 # ===============================
