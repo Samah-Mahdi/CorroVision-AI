@@ -181,6 +181,7 @@ col1, col2 = st.columns(2)
 with col1:
     st.markdown("**1. البيانات البصرية (الفحص)**")
     tab1, tab2 = st.tabs(["📂 رفع صورة من الجهاز", "📸 التقاط بالكاميرا"])
+    st.markdown("---")
 
 with tab1:
     uploaded_file = st.file_uploader("اختر صورة للفحص...", type=["jpg", "jpeg", "png"])
@@ -193,6 +194,8 @@ with col2:
     st.markdown("**2. البيانات التشغيلية (السياق)**")
     pressure = st.number_input("أدخل ضغط الأنبوب الحالي (Bar)", min_value=0.0, max_value=200.0, value=40.0, step=1.0)
     pressure_threshold = 50.0  # الحد الأقصى للضغط الآمن
+    st.markdown("---")
+
 
 # ===============================
 # 5. تنفيذ التحليل واتخاذ القرار
