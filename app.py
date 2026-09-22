@@ -455,4 +455,8 @@ if button_container.button(" بدء التحليل الذكي والمقارنة
                 elif not has_corrosion_res and pressure > pressure_threshold:
                     st.warning("⚠️ الحالة: تنبيه تشغيلي - لا يوجد تآكل مرئي، لكن الضغط مرتفع جداً.")
                     st.info("💡 التوصية: فحص الصمامات وأنظمة التحكم لخفض الضغط للمستوى الآمن.")
+                    
+                elif not has_corrosion_res and pressure < pressure_threshold:
+                    st.warning("⚠️ الحالة: تنبيه تشغيلي - لا يوجد تآكل مرئي، لكن الضغط منخفض جداً.")
+                    st.info("💡 التوصية: فحص الصمامات وأنظمة التحكم للتأكد من إمكانية وجود تسريب .")
 
