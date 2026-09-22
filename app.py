@@ -127,7 +127,6 @@ div[data-baseweb="input"] {{
     border-radius: 10px !important;
     position: relative;
     bottom: 55px;
-}
 }}
 
 .stAlertContainer {{
