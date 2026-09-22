@@ -172,23 +172,6 @@ st.title("CorroVision AI")
 st.subheader("نظام دعم القرار الذكي للكشف عن التآكل")
 st.markdown("---")
 
-# ===============================
-# 2. تحميل النموذج الحقيقي
-# ===============================
-# MODEL_PATH = "best_ResNet50.keras"
-
-# MODEL_URL = "https://github.com/Samah-Mahdi/CorroVision-AI/releases/download/v1.0.0/best_ResNet50.keras"
-
-# @st.cache_resource
-# def load_resnet_model(path, url):
-#     if not os.path.exists(path):
-#         with st.spinner("جاري تنزيل نموذج الذكاء الاصطناعي لأول مرة (قد يستغرق دقيقة)..."):
-#             urllib.request.urlretrieve(url, path)
-    
-#     return load_model(path)
-
-# model = load_resnet_model(MODEL_PATH, MODEL_URL)
-
 
 # ===============================
 # 2. تحميل النماذج (ResNet-50 & Custom CNN)
@@ -214,36 +197,6 @@ def load_ai_models():
     return resnet_model, custom_cnn_model
 
 resnet_model, custom_cnn_model = load_ai_models()
-
-# ===============================
-# 3. دالة معالجة الصورة والتنبؤ الحقيقي
-# ===============================
-# def predict_corrosion(image, model_obj):
-#     img = image.resize((224, 224)).convert("RGB")
-#     img_array = np.array(img, dtype=np.float32)
-    
-#     img_array = preprocess_input(img_array)
-#     img_array = np.expand_dims(img_array, axis=0)
-    
-#     raw_pred = model_obj.predict(img_array)
-#     pred_arr = np.array(raw_pred)
-    
-#     if pred_arr.ndim == 2 and pred_arr.shape[1] == 1:
-#         prob = float(pred_arr[0][0])
-#     elif pred_arr.ndim == 2 and pred_arr.shape[1] == 2:
-#         prob = float(pred_arr[0][1])
-#     else:
-#         prob = float(pred_arr.squeeze())
-        
-#     threshold = 0.35  
-#     has_corrosion = prob >= threshold
-    
-#     if has_corrosion:
-#         confidence = round(prob * 100, 2)
-#     else:
-#         confidence = round((1 - prob) * 100, 2)
-        
-#     return has_corrosion, confidence
 
 
 # ===============================
@@ -283,29 +236,6 @@ def predict_custom_cnn(image, model_obj):
     confidence = round(prob * 100, 2) if has_corrosion else round((1 - prob) * 100, 2)
     return has_corrosion, confidence
 
-# ===============================
-# 4. مدخلات البيانات (صورة + ضغط)
-# ===============================
-# col1, col2 = st.columns(2)
-
-# with col1:
-#     st.markdown("**1. البيانات البصرية (الفحص)**")
-#     tab1, tab2 = st.tabs(["📂 رفع صورة من الجهاز", "📸 التقاط بالكاميرا"])
-#     st.markdown("---")
-
-# with tab1:
-#     uploaded_file = st.file_uploader("اختر صورة للفحص...", type=["jpg", "jpeg", "png"])
-    
-# with tab2:
-#     camera_file = st.camera_input("التقاط صورة لأنابيب النفط مباشرة")
-    
-# image_to_process = uploaded_file or camera_file
-# with col2:
-#     st.markdown("**2. البيانات التشغيلية (السياق)**")
-#     pressure = st.number_input("أدخل ضغط الأنبوب الحالي (Bar)", min_value=0.0, max_value=200.0, value=40.0, step=1.0)
-#     pressure_threshold = 50.0  # الحد الأقصى للضغط الآمن
-#     st.markdown("---")
-
 
 # ===============================
 # 4. مدخلات البيانات (صورة + ضغط)
@@ -331,57 +261,6 @@ with col2:
     pressure = st.number_input("أدخل ضغط الأنبوب الحالي (Bar)", min_value=0.0, max_value=200.0, value=40.0, step=1.0)
     pressure_threshold = 50.0  # الحد الأقصى للضغط الآمن
     st.markdown("---")
-
-
-
-# ===============================
-# 5. تنفيذ التحليل واتخاذ القرار
-# ===============================
-
-# button_container = st.empty()
-# if button_container.button(" بدء التحليل الذكي 🚀", use_container_width=True):
-#     if image_to_process is None:
-#         st.error("الرجاء رفع صورة الأنبوب أولاً لإتمام العملية.")
-#     elif model is None:
-#         st.error(f"لم يتم العثور على ملف النموذج في المسار المحدد: {MODEL_PATH}")
-#         st.info("تأكد من صحة مسار الملف!")
-#     else:
-#         button_container.empty()
-#         with st.spinner('جاري تحليل الصورة بواسطة النموذج ومقاطعة النتائج مع بيانات الضغط...'):
-#             st.markdown("---")
-#             image = Image.open(image_to_process)
-            
-#             # الحصول على النتائج الحقيقية من النموذج
-#             has_corrosion, confidence = predict_corrosion(image, model)
-            
-#             st.markdown("### 📊 تقرير الفحص الفوري")
-            
-#             res_col1, res_col2 = st.columns([1, 1.5])
-            
-#             with res_col1:
-#                 st.image(image, caption="الصورة المراد فحصها", use_container_width=True)
-            
-#             with res_col2:
-#                 st.metric(label="دقة فحص النموذج (ResNet-50 Confidence)", value=f"{confidence}%")
-                
-#                 # تطبيق المنطق المركب (Rule-Based Fusion)
-#                 if not has_corrosion and pressure <= pressure_threshold:
-#                     st.success("✅ الحالة: آمن - الأنبوب سليم والضغط ضمن المعدل الطبيعي.")
-#                     st.info("💡 التوصية: الاستمرار في التشغيل الطبيعي. لا حاجة لصيانة فورية.")
-                    
-#                 elif has_corrosion and pressure <= pressure_threshold:
-#                     st.warning("⚠️ الحالة: تنبيه - تم اكتشاف تآكل، لكن الضغط مستقر.")
-#                     st.info("💡 التوصية: جدولة صيانة وقائية في أقرب فرصة. مراقبة الضغط باستمرار.")
-                    
-#                 elif has_corrosion and pressure > pressure_threshold:
-#                     st.error(f"🚨 الحالة: خطر حرج - تآكل مؤكد مع ضغط مرتفع ({pressure} Bar).")
-#                     st.error("💡 التوصية التشغيلية: خطر تسرب وشيك! يوصى بخفض الضغط فوراً وتوجيه فريق التدخل السريع.")
-                    
-#                 elif not has_corrosion and pressure > pressure_threshold:
-#                     st.warning("⚠️ الحالة: تنبيه تشغيلي - لا يوجد تآكل مرئي، لكن الضغط مرتفع جداً.")
-#                     st.info("💡 التوصية: فحص الصمامات وأنظمة التحكم لخفض الضغط للمستوى الآمن.")
-
-
 
 
 
@@ -456,7 +335,7 @@ if button_container.button(" بدء التحليل الذكي والمقارنة
                     st.warning("⚠️ الحالة: تنبيه تشغيلي - لا يوجد تآكل مرئي، لكن الضغط مرتفع جداً.")
                     st.info("💡 التوصية: فحص الصمامات وأنظمة التحكم لخفض الضغط للمستوى الآمن.")
                     
-                elif not has_corrosion_res and pressure < pressure_threshold:
+                elif not has_corrosion_res and pressure < (pressure_threshold-20):
                     st.warning("⚠️ الحالة: تنبيه تشغيلي - لا يوجد تآكل مرئي، لكن الضغط منخفض جداً.")
                     st.info("💡 التوصية: فحص الصمامات وأنظمة التحكم للتأكد من إمكانية وجود تسريب .")
 
