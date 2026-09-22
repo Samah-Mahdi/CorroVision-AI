@@ -331,15 +331,14 @@ image_to_process = uploaded_file or camera_file
 with col2:
     st.markdown("**2. البيانات التشغيلية (السياق)**")
     
-    # إضافة key="new_pressure_input" تحل مشكلة التجميد فوراً
-    pressure = st.number_input(
-        "أدخل ضغط الأنبوب الحالي (Bar)", 
+    # استخدام شريط التمرير التفاعلي بدلاً من حقل الإدخال الرقمي
+    pressure = st.slider(
+        "مؤشر ضغط الأنبوب الحالي (Bar)", 
         min_value=0.0, 
         max_value=200.0, 
         value=40.0, 
         step=1.0,
-        format="%.1f", # لضمان عرض الرقم بشكل عشري دائماً
-        key="new_pressure_input" 
+        key="pressure_slider"
     )
     
     pressure_threshold = 50.0  # الحد الأقصى للضغط الآمن
