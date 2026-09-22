@@ -58,7 +58,7 @@ html, body, .stApp, p, h2, h3, h4, h5, h6, span, label, div {{
     color: #EEEEEE;
 }}
 
-.stFileUploader {{
+.st-emotion-cache-1o32t8w {{
 color: #222222;
 }}
 
