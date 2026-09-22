@@ -87,6 +87,35 @@ color: #EEEEEE;
     color: #EEEEEE;
 }}
 
+.st-emotion-cache-3pwa5w {{
+    bottom: 25px;
+}}
+
+.st-emotion-cache-10klw3m {{
+    position: relative;
+    bottom: 45px;
+}}
+
+.st-emotion-cache-pa57uv > img {{
+    position: relative;
+    bottom: 40px;
+}}
+
+.st-emotion-cache-r8fbmg {{
+    position: relative;
+    bottom: 40px;
+}}
+
+.st-emotion-cache-43l2i h3 {{
+    position: relative;
+    bottom: 20px;
+}}
+
+.st-emotion-cache-1a7w0so {{
+    position: relative;
+    bottom: 20px;
+}}
+
 div[data-baseweb="input"] {{
     direction: ltr !important; 
     text-align: left !important;
@@ -96,6 +125,9 @@ div[data-baseweb="input"] {{
     direction: rtl !important;
     text-align: right !important;
     border-radius: 10px !important;
+    position: relative;
+    bottom: 55px;
+}
 }}
 
 .stAlertContainer {{
