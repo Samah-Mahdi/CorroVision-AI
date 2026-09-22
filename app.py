@@ -71,7 +71,7 @@ padding: 12px;
 border-radius: 10px;
 }}
 
-.st-emotion-cache-v6r2pr::hover {{
+.st-emotion-cache-v6r2pr:hover {{
 background-color: #B20600
 color: #EEEEEE;
 }}
