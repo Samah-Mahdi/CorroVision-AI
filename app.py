@@ -194,8 +194,6 @@ with col2:
     pressure = st.number_input("أدخل ضغط الأنبوب الحالي (Bar)", min_value=0.0, max_value=200.0, value=40.0, step=1.0)
     pressure_threshold = 50.0  # الحد الأقصى للضغط الآمن
 
-st.markdown("---")
-
 # ===============================
 # 5. تنفيذ التحليل واتخاذ القرار
 # ===============================
@@ -206,6 +204,7 @@ if st.button("🚀 بدء التحليل الذكي", use_container_width=True):
         st.error(f"لم يتم العثور على ملف النموذج في المسار المحدد: {MODEL_PATH}")
         st.info("تأكد من صحة مسار الملف!")
     else:
+        st.button(style="display: none")
         with st.spinner('جاري تحليل الصورة بواسطة النموذج ومقاطعة النتائج مع بيانات الضغط...'):
             image = Image.open(image_to_process)
             
